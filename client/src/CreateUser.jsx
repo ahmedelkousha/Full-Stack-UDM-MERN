@@ -8,7 +8,7 @@ export default function CreateUser() {
     const [userInfo, setUserInfo] = useState({ Name: '', Email: '', Age: '' })
     const Submit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3000/createUser", { ...userInfo }).then((result) => {
+        axios.post("https://udm-server.vercel.app/createUser", { ...userInfo }).then((result) => {
             console.log(result);
             navigate('/')
         }).catch((err) => {

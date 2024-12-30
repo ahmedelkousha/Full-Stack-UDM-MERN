@@ -7,7 +7,7 @@ export default function Users() {
     }])
 
     const handleDelete = (id) => {
-        axios.delete('http://localhost:3000/deleteUser/' + id).then((res) => {
+        axios.delete('https://udm-server.vercel.app/deleteUser/' + id).then((res) => {
             console.log(res);
 
         }).catch((err) => {
@@ -17,7 +17,7 @@ export default function Users() {
     }
 
     useEffect( () => {
-       axios.get("http://localhost:3000").then((result) => {
+        axios.get("https://udm-server.vercel.app").then((result) => {
             setUsers(result.data)
     }).catch((err) => {
         console.log(err)
