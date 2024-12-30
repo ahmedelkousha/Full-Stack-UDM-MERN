@@ -10,16 +10,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-module.exports = app.get("/", (req, res) => {
-  userInfo
-    .find({})
-    .then((users) => {
-      res.json(users);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+app.get(
+  "/",
+  (module.exports = (req, res) => {
+    userInfo
+      .find({})
+      .then((users) => {
+        res.json(users);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  })
+);
 
 app.get(
   "/getUser/:id",
