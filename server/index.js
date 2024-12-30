@@ -12,8 +12,8 @@ app.use(express.json());
 
 app.get(
   "/",
-  (module.exports = (req, res) => {
-    userInfo
+  (module.exports = async (req, res) => {
+    await userInfo
       .find({})
       .then((users) => {
         res.json(users);
@@ -26,9 +26,9 @@ app.get(
 
 app.get(
   "/getUser/:id",
-  (module.exports = (req, res) => {
+  (module.exports = async (req, res) => {
     const id = req.params.id;
-    userInfo
+    await userInfo
       .findById({ _id: id })
       .then((users) => {
         res.json(users);
@@ -41,9 +41,9 @@ app.get(
 
 app.put(
   "/updateUser/:id",
-  (module.exports = (req, res) => {
+  (module.exports = async (req, res) => {
     const id = req.params.id;
-    userInfo
+    await userInfo
       .findByIdAndUpdate(
         { _id: id },
         { Name: req.body.Name, Email: req.body.Email, Age: req.body.Age }
@@ -59,9 +59,9 @@ app.put(
 
 app.delete(
   "/deleteUser/:id",
-  (module.exports = (req, res) => {
+  (module.exports = async (req, res) => {
     const id = req.params.id;
-    userInfo
+    await userInfo
       .findByIdAndDelete({ _id: id })
       .then((res) => {
         res.json(res);
@@ -90,7 +90,7 @@ app.post(
   })
 );
 
-mongoose.connect(process.env.DATABASE_URL).then(module.exports=() => {
+mongoose.connect(process.env.DATABASE_URL).then(() => {
   app.listen(process.env.PORT, () => {
     console.log(`Success! Server is running on port ${process.env.PORT}`);
   });
