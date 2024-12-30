@@ -25,13 +25,13 @@ export default function Users() {
     })
 
     return (
-        <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
-            <div className="bg-white rounded p-3">
+        <div className="d-flex vh-100 bg-primary justify-content-center align-items-center container">
+            <div className="bg-white rounded p-2">
                 <Link to="/create" className="btn btn-success">Add +</Link>
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            {/* <th>ID</th> */}
                             <th>Name</th>
                             <th>Email</th>
                             <th>Age</th>
@@ -41,7 +41,7 @@ export default function Users() {
                     <tbody>
                         {users.map((user, index) => (
                             <tr key={index}>
-                                <td>{user._id}</td>
+                                {/* <td>{user._id}</td> */}
                                 <td>{user.Name}</td>
                                 <td>{user.Email}</td>
                                 <td>{user.Age}</td>
