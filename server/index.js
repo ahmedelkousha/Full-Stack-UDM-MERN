@@ -90,7 +90,7 @@ app.post(
   })
 );
 
-mongoose.connect(process.env.DATABASE_URL).then(() => {
+module.exports = mongoose.connect(process.env.DATABASE_URL).then(() => {
   app.listen(process.env.PORT, () => {
     console.log(`Success! Server is running on port ${process.env.PORT}`);
   });
