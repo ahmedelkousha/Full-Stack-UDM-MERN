@@ -9,7 +9,7 @@ export default function UpdateUser() {
     const [userInfo, setUserInfo] = useState({ Name: '', Email: '', Age: '' })
 
     useEffect(() => {
-        axios.get("https://udm-server.vercel.app/getUser/" + id).then((result) => {
+        axios.get("http://localhost:3000/getUser/" + id).then((result) => {
             console.log(result);
             setUserInfo({Name:result.data.Name, Email:result.data.Email, Age:result.data.Age})
         }).catch((err) => {
@@ -19,7 +19,7 @@ export default function UpdateUser() {
 
     const Update = (e) => {
         e.preventDefault();
-        axios.put("https://udm-server.vercel.app/updateUser/" + id, { ...userInfo }).then((result) => {
+        axios.put("http://localhost:3000/updateUser/" + id, { ...userInfo }).then((result) => {
             console.log(result)
             navigate('/')
         }).catch((err) => {
