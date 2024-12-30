@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.get(
   "/",
-  (module.exports = async (req, res) => {
+  (async (req, res) => {
     await userInfo
       .find({})
       .then((users) => {
@@ -26,7 +26,7 @@ app.get(
 
 app.get(
   "/getUser/:id",
-  (module.exports = async (req, res) => {
+  (async (req, res) => {
     const id = req.params.id;
     await userInfo
       .findById({ _id: id })
@@ -41,7 +41,7 @@ app.get(
 
 app.put(
   "/updateUser/:id",
-  (module.exports = async (req, res) => {
+  (async (req, res) => {
     const id = req.params.id;
     await userInfo
       .findByIdAndUpdate(
@@ -59,7 +59,7 @@ app.put(
 
 app.delete(
   "/deleteUser/:id",
-  (module.exports = async (req, res) => {
+  (async (req, res) => {
     const id = req.params.id;
     await userInfo
       .findByIdAndDelete({ _id: id })
@@ -74,7 +74,7 @@ app.delete(
 
 app.post(
   "/createUser",
-  (module.exports = async (req, res) => {
+  (async (req, res) => {
     await userInfo
       .create(req.body)
       .then((user) => {
